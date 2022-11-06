@@ -10,10 +10,10 @@ const Header = () => {
         <Nav className="justify-content-center bg-dark" activeKey="/home">
         <Nav.Item>
           <Nav.Link href="/" style={{color: 'white'}}>Home</Nav.Link>
-        </Nav.Item>
+        </Nav.Item>                               
 
         <Nav.Item>
-          <Nav.Link href='city-details' eventKey="link-1" style={{color: 'white'}}>City Details</Nav.Link>
+          <Nav.Link href='city-details/:item' eventKey="link-1" style={{color: 'white'}}>City Details</Nav.Link>
         </Nav.Item>
 
         <Nav.Item>
