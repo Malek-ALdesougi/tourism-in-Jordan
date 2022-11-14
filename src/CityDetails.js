@@ -1,23 +1,21 @@
+import { useContext } from "react";
 import { useParams } from "react-router-dom";
+import { ToursContext } from "./App";
 import Tours from "./Tours";
 
 
-function CityDetails(props) {
+function CityDetails(){
+
+    const tours = useContext(ToursContext)
 
     const {id} = useParams();
     
-    console.log(props.tourss);
-
-    let filterd = props.tourss.filter((element) => {
+    let filterd = tours.tours.filter((element) => {
 
         return element.id == id ;
     });
 
     console.log(filterd[0]);
-
-
-
-
 
 // console.log(id);
 

@@ -1,14 +1,14 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import Home from "./Home";
 import Header from "./Header";
 import Footer from "./Footer";
 import Tours from "./Tours";
-import {Routes, Route } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import CityDetails from "./CityDetails";
-// import CityDetails from "./CityDetails";
+
+export const ToursContext = React.createContext();
 
 function App() {
-
   const [tours, setTours] = useState([
     {
       id: 1,
@@ -39,19 +39,21 @@ function App() {
       info: "AL-Salt is a good place to visit we recommend it vrey bad",
       image: "https://livinginjordanasexpat.com/dav-66/",
       price: 68,
-    }, 
+    },
   ]);
-
 
   return (
     <>
       <Header />
 
+      <ToursContext.Provider value={{tours}}>
         <Routes>
-          <Route path="/" element={<Home tours={tours} />} />
-          <Route path="/city-details/:id" element={<CityDetails tourss={tours}/>} />
+          <Route path="/" element={<Home/>} />
+          <Route
+            path="/city-details/:id"
+            element={<CityDetails />}/>
         </Routes>
-
+      </ToursContext.Provider>
       <Footer />
     </>
   );
